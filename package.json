@@ -7,7 +7,7 @@
     "antd": "^4.9.4",
     "axios": "^0.21.0",
     "dayjs": "^1.9.7",
-    "parcel": "2.0.0-beta.1",
+    "parcel": "2.0.0-nightly.485",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
