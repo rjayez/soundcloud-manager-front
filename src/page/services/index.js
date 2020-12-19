@@ -2,7 +2,7 @@ import axios from "axios";
 import {openNotificationWithIcon} from "../../utils";
 
 
-const url = process.env.SOUNDCLOUD_MANAGER_API_URL
+// const url = process.env.SOUNDCLOUD_MANAGER_API_URL
 
 export const listPlaylist = async () => {
     return await axios.get('/api/playlists')
