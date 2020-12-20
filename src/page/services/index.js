@@ -2,10 +2,10 @@ import axios from "axios";
 import {openNotificationWithIcon} from "../../utils";
 
 
-// const url = process.env.SOUNDCLOUD_MANAGER_API_URL
+ const url = process.env.SOUNDCLOUD_MANAGER_API_URL
 
 export const listPlaylist = async () => {
-    return await axios.get('/api/playlists')
+    return await axios.get(`${url}/playlists`)
         .then(response => {
             console.info(response);
             openNotificationWithIcon('success', 'Playlists à jour.', '');
@@ -20,7 +20,7 @@ export const listPlaylist = async () => {
 
 
 export const createPlaylist = async (weekNumber) => {
-    return axios.post('/api/playlists/weekly/' + weekNumber)
+    return axios.post(`${url}/playlists/weekly/` + weekNumber)
         .then(response => {
             openNotificationWithIcon('success', 'Playlists créées !', '');
         }, error => {
