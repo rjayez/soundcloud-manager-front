@@ -8,6 +8,7 @@
     Content-Security-Policy = "default-src 'self';img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://soundcloud-manager-api.herokuapp.com"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=()"
+  Access-Control-Allow-Origin = "https://soundcloud-manager-api.herokuapp.com"
 
     # Multi-value headers are expressed with multi-line strings.
 	cache-control = '''
