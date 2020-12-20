@@ -1,0 +1,17 @@
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src https:; script-src https://agitated-mahavira-422a1b.netlify.app http://agitated-mahavira-422a1b.netlify.app"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "*"
+
+    # Multi-value headers are expressed with multi-line strings.
+	cache-control = '''
+	max-age=0,
+	no-cache,
+	no-store,
+	must-revalidate'''
+
