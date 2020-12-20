@@ -5,7 +5,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
   X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src https:;img-src *; style-src *; script-src https://soundcloud-manager.netlify.app http://soundcloud-manager.netlify.app"
+    Content-Security-Policy = "default-src https:;img-src *; style-src *; script-src self"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=()"
 
