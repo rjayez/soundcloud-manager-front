@@ -5,7 +5,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
   X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'self';img-src *; style-src *; script-src 'self'"
+    Content-Security-Policy = "default-src 'self';img-src 'self'; style-src 'self'; script-src 'self'; media-src https://soundcloud-manager-api.herokuapp.com"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=()"
 
