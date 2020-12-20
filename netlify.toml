@@ -4,6 +4,7 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+  X-Content-Type-Options = "nosniff"
     Content-Security-Policy = "default-src https:; script-src https://agitated-mahavira-422a1b.netlify.app http://agitated-mahavira-422a1b.netlify.app"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "*"
