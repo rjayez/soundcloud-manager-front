@@ -9,7 +9,7 @@
     default-src 'self';
     img-src 'self' data:;
     style-src 'strict-dynamic' 'sha256-YGDvU5q+cB+Qm/hzBAtqUGTRsHo19RnXbGLHUr5Gk/o=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-DOu86drLfwUr1Wcsx/wxfqAogK7tFvJGjVmF/300H/M=';
-    connect-src 'self' https://soundcloud-manager-api.herokuapp.com"
+    connect-src 'self' https://soundcloud-manager-api.herokuapp.com
     '''
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=()"
