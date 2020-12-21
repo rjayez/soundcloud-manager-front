@@ -1,22 +1,24 @@
 [[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = '''
+# Define which paths this specific [[headers]] block will cover.
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Content-Security-Policy = '''
     default-src 'self';
     img-src 'self' data:;
-    style-src 'strict-dynamic';
+    style-src 'strict-dynamic' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='
+                               'sha256-DOu86drLfwUr1Wcsx/wxfqAogK7tFvJGjVmF/300H/M='
+                               'sha256-YGDvU5q+cB+Qm/hzBAtqUGTRsHo19RnXbGLHUr5Gk/o=';
     connect-src 'self' https://soundcloud-manager-api.herokuapp.com
     '''
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=()"
-    Access-Control-Allow-Origin = "*"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "geolocation=(), microphone=()"
+Access-Control-Allow-Origin = "*"
 
-    # Multi-value headers are expressed with multi-line strings.
-	cache-control = '''
+# Multi-value headers are expressed with multi-line strings.
+cache-control = '''
 	max-age=0,
 	no-cache,
 	no-store,
