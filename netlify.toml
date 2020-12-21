@@ -14,7 +14,7 @@
     '''
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=()"
-    Access-Control-Allow-Origin = "https://soundcloud-manager-api.herokuapp.com/*"
+    Access-Control-Allow-Origin = "*"
 
     # Multi-value headers are expressed with multi-line strings.
 	cache-control = '''
