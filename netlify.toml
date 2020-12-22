@@ -8,7 +8,7 @@ X-Content-Type-Options = "nosniff"
 Content-Security-Policy = '''
     default-src 'self';
     img-src 'self' data:;
-    style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-DOu86drLfwUr1Wcsx/wxfqAogK7tFvJGjVmF/300H/M=' 'sha256-YGDvU5q+cB+Qm/hzBAtqUGTRsHo19RnXbGLHUr5Gk/o=';
+    style-src 'self' 'sha256-dDv6byVqrBdlHGhlApkWnMwDN1V5fg27cFc9FrusbLI=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-DOu86drLfwUr1Wcsx/wxfqAogK7tFvJGjVmF/300H/M=' 'sha256-YGDvU5q+cB+Qm/hzBAtqUGTRsHo19RnXbGLHUr5Gk/o=';
     connect-src 'self' https://soundcloud-manager-api.herokuapp.com
     '''
 Referrer-Policy = "strict-origin-when-cross-origin"
