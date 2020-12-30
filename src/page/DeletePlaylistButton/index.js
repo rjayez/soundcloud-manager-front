@@ -6,7 +6,7 @@ const DeletePlaylistButton = ({playlistId}) => {
 
     const onDeleteConfirm = () => {
         let playlistName = playlistId.replace(/ /g, "-")
-        window.open(`https://soundcloud.com/hiprom-rom/sets/${playlistName}#suppression--de-la-playlist`)
+        window.open(`https://soundcloud.com/hiprom-rom/sets/${playlistName}#suppression-de-la-playlist`)
     }
 
     return (
