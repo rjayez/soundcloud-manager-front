@@ -7,7 +7,6 @@ import {openNotificationWithIcon} from "../../utils";
 export const listPlaylist = async () => {
     return await axios.get(`${url}/playlists`)
         .then(response => {
-            console.info(response);
             openNotificationWithIcon('success', 'Playlists à jour.', '');
             return response.data;
         }, error => {
@@ -21,7 +20,7 @@ export const listPlaylist = async () => {
 
 export const createPlaylist = async (weekNumber) => {
     return axios.post(`${url}/playlists/weekly/` + weekNumber)
-        .then(response => {
+        .then(() => {
             openNotificationWithIcon('success', 'Playlists créées !', '');
         }, error => {
             console.error(error);

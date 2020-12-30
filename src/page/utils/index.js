@@ -7,7 +7,7 @@ export const tableColums = [
         dataIndex: 'titre',
         key: 'titre',
         sorter: (a, b) => a.titre.localeCompare(b.titre),
-        filters: [{text: 'Track de la semaine', value: 'Track de la semaine'}, {text: 'Set de la semaine', value: 'Set de la semaine'}],
+        filters: [{text: 'Track semaine', value: 'Track semaine'}, {text: 'Set semaine', value: 'Set semaine'}],
         onFilter: (value, record) => record.titre.includes(value)
     },
     {
@@ -21,7 +21,7 @@ export const tableColums = [
         dataIndex: 'key',
         width: 75,
         align: 'center',
-        render: record => <DeletePlaylistButton playlistId={record}/>
+        render: (text, record) => <DeletePlaylistButton playlistId={record.titre}/>
     }
 ];
 
