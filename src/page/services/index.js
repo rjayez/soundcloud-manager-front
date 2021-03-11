@@ -18,8 +18,8 @@ export const listPlaylist = async () => {
 }
 
 
-export const createPlaylist = async (weekNumber) => {
-    return axios.post(`${url}/playlists/weekly/` + weekNumber)
+export const createPlaylist = async (weekNumber, year) => {
+    return axios.post(`${url}/playlists/weekly/${weekNumber}?year=${year}`)
         .then(() => {
             openNotificationWithIcon('success', 'Playlists créées !', '');
         }, error => {
