@@ -19,9 +19,6 @@ const PlaylistTable = () => {
         loadPlaylist();
     }, [loadPlaylist]);
 
-
-    console.log(data);
-
     return (
         <div className="playlist-table">
             <Card className="playlist-table-card">
