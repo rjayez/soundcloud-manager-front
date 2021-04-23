@@ -41,7 +41,7 @@ const Main = () => {
 
     return (
         <>
-            <div data-netlify-identity-menu aria-autocomplete={"both"}/>
+            <div className="data-netlify-identity-menu" aria-autocomplete={"both"}/>
             {isAuthenticated &&
 
             <PlaylistProvider>
