@@ -8,12 +8,7 @@ X-Content-Type-Options = "nosniff"
 Content-Security-Policy = '''
     default-src 'self';
     img-src 'self' data:;
-    style-src 'self'
-        'sha256-dDv6byVqrBdlHGhlApkWnMwDN1V5fg27cFc9FrusbLI='
-        'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='
-        'sha256-DOu86drLfwUr1Wcsx/wxfqAogK7tFvJGjVmF/300H/M='
-        'sha256-YGDvU5q+cB+Qm/hzBAtqUGTRsHo19RnXbGLHUr5Gk/o='
-        'sha256-y6rQJvi8mFPSGX1rRo8rSTIiRN5IvRr1kN8zcCjEcdg=';
+    style-src 'self' 'unsafe-inline';
     connect-src 'self' https://soundcloud-manager-api.herokuapp.com
     '''
 Referrer-Policy = "strict-origin-when-cross-origin"
@@ -26,3 +21,22 @@ cache-control = '''
 	no-cache,
 	no-store,
 	must-revalidate'''
+
+
+
+#'unsafe-inline'
+#'sha256-dDv6byVqrBdlHGhlApkWnMwDN1V5fg27cFc9FrusbLI='
+#'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='
+#'sha256-DOu86drLfwUr1Wcsx/wxfqAogK7tFvJGjVmF/300H/M='
+#'sha256-YGDvU5q+cB+Qm/hzBAtqUGTRsHo19RnXbGLHUr5Gk/o='
+#'sha256-y6rQJvi8mFPSGX1rRo8rSTIiRN5IvRr1kN8zcCjEcdg='
+#'sha256-8P15efpf1fbztt5zuKGtAHP4AdrdA3vWqC4lCk1ZDaI='
+#'sha256-jILZY2UBo/ux6K6qGHntQonoJYNQZfxdLrszRmDpc/o='
+#'sha256-N+VcBBmZdeQ7u1UL8ShBNOTISsJ6Iyf9CJJ2SC1dbio='
+#'sha256-gBhHqWM03UYnyDzSzZVWDqBpNfVXT+Z8mruNQI4pQOE='
+#'sha256-lm4mPIyPhtvcfmpkgXLAC5NqhnKD1NZrE2Zi6Ki0e7o='
+#'sha256-iy+MnTBXTcFztUscKfZ2VxZD9aJrzwLfpJVpVojXfgk='
+#'sha256-hH4zppOtQX3oAaJof/RCIOHS6AuU80SkHjSP8qigSSQ='
+#'sha256-1PF6BGyTJgXoCEgrxOBYt/I0HyIW2ZmvcYauF2fAIqQ='
+#'sha256-oyZPsziFlJnGv6sZtlAcVIlEuJ40/ZCWNNcxliI8CuE='
+#'sha256-Z46D59/OgFLhs9x6hhMSfQ6AbSHIUjd8onZZhzORAT4='
