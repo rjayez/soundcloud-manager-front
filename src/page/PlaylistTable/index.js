@@ -1,17 +1,19 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
 import {listPlaylist} from "../services";
 import {Button, Card, Table} from "antd";
 import {tableColums} from "../utils";
 import {SyncOutlined} from "@ant-design/icons";
+import {PlaylistContext} from "../../context/PlaylistContext";
 
 const PlaylistTable = () => {
-    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [playlists, setPlaylists] = useContext(PlaylistContext);
+
 
     const loadPlaylist = useCallback(() => {
         setLoading(true);
         listPlaylist()
-            .then(value => setData(value))
+            .then(value => setPlaylists(value))
             .finally(() => setLoading(false));
     }, [])
 
@@ -27,7 +29,7 @@ const PlaylistTable = () => {
                 </Button>
                 <Table
                     className="Table"
-                    dataSource={data}
+                    dataSource={playlists}
                     loading={loading}
                     pagination={false}
                     maxHeight={"500px"}

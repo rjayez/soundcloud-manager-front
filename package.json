@@ -11,16 +11,12 @@
     "axios": "^0.21.0",
     "dayjs": "^1.9.7",
     "netlify-identity-widget": "^1.9.1",
-    "parcel": "2.0.0-nightly.485",
+    "parcel": "2.0.0-nightly.643",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-netlify-identity": "^0.2.5",
-    "react-netlify-identity-widget": "^0.2.7"
+    "react-dom": "^17.0.1"
   },
   "scripts": {
-    "dev": "concurrently \"yarn start\" \"yarn api\"",
     "start": "parcel serve ./public/index.html --host localhost",
-    "api": "cd ./api/flask_soundcloud_env/Scripts/ && activate.bat  &&  python -m flask run",
     "build": "parcel build ./public/index.html --dist-dir build"
   },
   "devDependencies": {

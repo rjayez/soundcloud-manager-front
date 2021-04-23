@@ -1,24 +1,51 @@
-import React from 'react';
-import "react-netlify-identity-widget/styles.css"
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import CreatePlaylistCard from "./CreatePlaylistCard";
 import PlaylistTable from "./PlaylistTable";
-import {useIdentityContext} from "react-netlify-identity";
-import {IdentityModal} from "react-netlify-identity-widget"
+import {PlaylistProvider} from "../context/PlaylistContext"
+import netlifyIdentity from "netlify-identity-widget";
 import {Button} from "antd";
 
 
 const Main = () => {
 
-    const {isLoggedIn, logoutUser} = useIdentityContext();
-    const [dialog, setDialog] = React.useState(true);
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [user, setUser] = useState(netlifyIdentity.currentUser());
+
+    const authenticate = (user) => {
+        setIsAuthenticated(true);
+        setUser(user);
+        netlifyIdentity.close();
+    }
+    const signout = () => {
+        setIsAuthenticated(false);
+        setUser(null);
+    }
+
+    useEffect(() => {
+        netlifyIdentity.on('init', user => console.log('init', user));
+        netlifyIdentity.on('login', user => {
+            console.log('login', user);
+            authenticate();
+        });
+        netlifyIdentity.on('logout', () => signout());
+        netlifyIdentity.on('error', err => console.error('Error', err));
+        netlifyIdentity.on('open', () => console.log('Widget opened'));
+        netlifyIdentity.on('close', () => console.log('Widget closed'));
+        netlifyIdentity.open();
+        console.log(user);
+    }, []);
+
+    console.log(isAuthenticated);
 
     return (
         <>
-            {!isLoggedIn ?
-                (<IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} settings={{disable_signup : true}} />)
-                :
-                (<div className="App">
+            <div data-netlify-identity-menu aria-autocomplete={"both"}/>
+            {isAuthenticated &&
+
+            <PlaylistProvider>
+                <div className="App">
                     <h1 className="title">Soundcloud Manager</h1>
                     <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAmElEQVR4AWOgBIyC/8b/04DQ4D8DKgQiDKj+3/K/6P8P/yFg6X9OfBpU/i/6P+3/Q6AyoAYoWIFLgxAQV/y/BNeAAFqYGkT/H/jf/n8jdg1AWxv/WyI0gDyY+f8wUMNhFA3owA+hYSlRGnaRqmEFqRq8kT3th6Rh8v97/xehafj8vxEzWNn+c0IxDxAzw8QxY5owHNVAIgQAOyoU8xOYjv8AAAAASUVORK5CYII="
@@ -30,9 +57,9 @@ const Main = () => {
                         <PlaylistTable/>
                         <CreatePlaylistCard/>
                     </div>
-                    <Button onClick={() => logoutUser()}>Déco !</Button>
-                </div>)}
-
+                    <Button onClick={() => netlifyIdentity.open()}>Déco !</Button>
+                </div>
+            </PlaylistProvider>}
         </>
     );
 }

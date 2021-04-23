@@ -23,7 +23,7 @@ const CreatePlaylistCard = () => {
                     <InputNumber style={{margin: "5px", gridRow: "1", gridColumn: "2", justifySelf : "right", width: "60px", textAlign: "center"}} min={0} max={53} defaultValue={getWeekNumber(new Date())}
                                  onChange={value => setSelectedNumberWeek(value)}/>
                     <span style={{gridRow: "2", gridColumn: "1", justifySelf : "left"}}>Année :</span>
-                    <InputNumber style={{margin: "5px", gridRow: "2", gridColumn: "2", justifySelf : "right", width: "60px"}} cen min={2010} max={2099} defaultValue={selectedYear}
+                    <InputNumber style={{margin: "5px", gridRow: "2", gridColumn: "2", justifySelf : "right", width: "60px"}} min={2010} max={2099} defaultValue={selectedYear}
                                  onChange={value => setSelectedYear(value)}/>
             </div>
                 <Button style={{justifyContent: "center", marginTop : "15px"}} type="default" icon={<PlusCircleTwoTone/>} loading={loading} onClick={onClickCreate}>
