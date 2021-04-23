@@ -31,8 +31,6 @@ const Main = () => {
         });
         netlifyIdentity.on('logout', () => signout());
         netlifyIdentity.on('error', err => console.error('Error', err));
-        netlifyIdentity.on('open', () => console.log('Widget opened'));
-        netlifyIdentity.on('close', () => console.log('Widget closed'));
         netlifyIdentity.open();
         console.log(user);
     }, []);
@@ -41,9 +39,7 @@ const Main = () => {
 
     return (
         <>
-            <div className="data-netlify-identity-menu" aria-autocomplete={"both"}/>
-            {isAuthenticated &&
-
+            {isAuthenticated ?
             <PlaylistProvider>
                 <div className="App">
                     <h1 className="title">Soundcloud Manager</h1>
@@ -57,9 +53,12 @@ const Main = () => {
                         <PlaylistTable/>
                         <CreatePlaylistCard/>
                     </div>
-                    <Button onClick={() => netlifyIdentity.open()}>Déco !</Button>
+                    <Button onClick={() => netlifyIdentity.open()}>Déconnexion</Button>
                 </div>
-            </PlaylistProvider>}
+            </PlaylistProvider>
+            :
+                <Button onClick={() => netlifyIdentity.open()}>Connexion</Button>
+            }
         </>
     );
 }
