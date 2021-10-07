@@ -25,7 +25,7 @@ const PlaylistTable = () => {
         <div className="playlist-table">
             <Card className="playlist-table-card">
                 <Button type="primary" className="button-sync-playlist" onClick={loadPlaylist}>
-                    <SyncOutlined  spin={loading}/>
+                    <SyncOutlined spin={loading}/>
                 </Button>
                 <Table
                     className="Table"

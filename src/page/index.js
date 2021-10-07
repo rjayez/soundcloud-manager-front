@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import CreatePlaylistCard from "./CreatePlaylistCard";
 import PlaylistTable from "./PlaylistTable";
 import {PlaylistProvider} from "../context/PlaylistContext"
 import netlifyIdentity from "netlify-identity-widget";
-import {Button, Card} from "antd";
+import {Button, Card, Input} from "antd";
 import {LoginOutlined, LogoutOutlined} from "@ant-design/icons";
 import {useNetlifyIdentity} from "../hooks/useNetlifyIdentity";
+import {connect, truc} from "./services"
 
+const SOUNDCLOUD_API_URL = "https://api.soundcloud.com";
+const redirect = "https://soundcloud-manager.netlify.app"
+const connectUrl = SOUNDCLOUD_API_URL + `/connect?client_id=&redirect_uri=${redirect}&response_type=code`
 
 const Main = () => {
 
     const {isAuthenticated} = useNetlifyIdentity();
+    const [value, setValue] = useState("");
 
     return (
         <>
@@ -24,10 +29,16 @@ const Main = () => {
                             width="24" height="24" alt="Icône orange transparente"/>
                         <h1 className="title">Soundcloud Manager</h1>
                     </div>
-                    {isAuthenticated &&
-                    <Button type="primary" onClick={() => netlifyIdentity.open()} icon={<LogoutOutlined/>}/>}
+                    {true &&
+                    // <Button type="primary" onClick={() => netlifyIdentity.open()} icon={<LogoutOutlined/>}/>}
+                    <>
+                        <Button type="primary" href={connectUrl} icon={<LogoutOutlined/>}/>
+                        <Button type="primary" onClick={() => truc(value)} icon={<LoginOutlined/>}/>}/>
+                        <Input onChange={(evt) => setValue(evt.target.value)}  />
+                    </>
+                    }
                 </div>
-                {isAuthenticated ?
+                {true ?
                     <PlaylistProvider>
                         <div className="playlist-display">
                             <PlaylistTable/>
