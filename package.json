@@ -16,7 +16,7 @@
     "react-dom": "^17.0.1"
   },
   "scripts": {
-    "start": "parcel serve ./public/index.html --host localhost",
+    "start": "parcel serve ./public/index.html --host localhost -p 3214",
     "build": "parcel build ./public/index.html --dist-dir build"
   },
   "devDependencies": {

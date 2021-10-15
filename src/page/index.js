@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import CreatePlaylistCard from "./CreatePlaylistCard";
 import PlaylistTable from "./PlaylistTable";
@@ -7,16 +7,37 @@ import netlifyIdentity from "netlify-identity-widget";
 import {Button, Card, Input} from "antd";
 import {LoginOutlined, LogoutOutlined} from "@ant-design/icons";
 import {useNetlifyIdentity} from "../hooks/useNetlifyIdentity";
-import {connect, truc} from "./services"
+import {getApiCode, authentication} from "../services"
 
 const SOUNDCLOUD_API_URL = "https://api.soundcloud.com";
 const redirect = "https://soundcloud-manager.netlify.app"
 const connectUrl = SOUNDCLOUD_API_URL + `/connect?client_id=&redirect_uri=${redirect}&response_type=code`
 
+
 const Main = () => {
 
     const {isAuthenticated} = useNetlifyIdentity();
-    const [value, setValue] = useState("");
+    const [hasCode, setHasCode] = useState(false);
+    // const [_, setCode] = useState("");
+
+    function connectApi() {
+        if (!hasCode) {
+            getApiCode().then((url) => {
+                window.location.href = url;
+            });
+        }
+    }
+
+    useEffect(() => {
+        let searchParams = new URL(window.location.toString()).searchParams;
+        console.log(searchParams)
+        if (searchParams.has("code")) {
+            const code = searchParams.get("code")
+            setHasCode(true);
+            Promise.resolve(authentication(code));
+        }
+    }, [])
+
 
     return (
         <>
@@ -29,16 +50,17 @@ const Main = () => {
                             width="24" height="24" alt="Icône orange transparente"/>
                         <h1 className="title">Soundcloud Manager</h1>
                     </div>
-                    {true &&
+                    {isAuthenticated &&
                     // <Button type="primary" onClick={() => netlifyIdentity.open()} icon={<LogoutOutlined/>}/>}
                     <>
                         <Button type="primary" href={connectUrl} icon={<LogoutOutlined/>}/>
-                        <Button type="primary" onClick={() => truc(value)} icon={<LoginOutlined/>}/>}/>
-                        <Input onChange={(evt) => setValue(evt.target.value)}  />
+                        <Button type="primary" onClick={() => connectApi()} icon={<LoginOutlined/>}>Connecte
+                            l'api</Button>
+                        <Input onChange={(evt) => setValue(evt.target.value)}/>
                     </>
                     }
                 </div>
-                {true ?
+                {isAuthenticated ?
                     <PlaylistProvider>
                         <div className="playlist-display">
                             <PlaylistTable/>

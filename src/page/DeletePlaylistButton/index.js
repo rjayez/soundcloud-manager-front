@@ -14,13 +14,13 @@ const DeletePlaylistButton = ({playlistId}) => {
     }
 
     const removePlaylist = () => {
-        setPlaylist(playlist.filter(p => p.titre !==  playlistId));
+        setPlaylist(playlist.filter(p => p.titre !== playlistId));
     }
 
     return (
         <Popconfirm title="Supprimer cette playlist ?" onConfirm={() => onDeleteConfirm()}>
-            <Button type="danger" className="button-delete"  >
-                <DeleteOutlined />
+            <Button type="danger" className="button-delete">
+                <DeleteOutlined/>
             </Button>
         </Popconfirm>
     );

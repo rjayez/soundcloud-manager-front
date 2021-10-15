@@ -1,5 +1,5 @@
 import React, {useCallback, useContext, useEffect, useState} from "react";
-import {listPlaylist} from "../services";
+import {listPlaylist} from "../../services";
 import {Button, Card, Table} from "antd";
 import {tableColums} from "../utils";
 import {SyncOutlined} from "@ant-design/icons";

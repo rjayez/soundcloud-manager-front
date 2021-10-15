@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {getWeekNumber} from "../utils/DateUtils";
-import {createPlaylist} from "../services";
+import {createPlaylist} from "../../services";
 import {Button, Card, InputNumber} from "antd";
 import {PlusCircleTwoTone} from "@ant-design/icons";
 
